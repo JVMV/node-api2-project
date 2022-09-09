@@ -5,10 +5,8 @@ const postsRouter = require('./posts/posts-router.js')
 
 const server = express()
 
-server.listen(9000, () => console.log(`listening on port 9000`))
-
 server.use(express.json())
+server.use('/api/posts', postsRouter)
 server.use(postsRouter)
 
-
-server.use('/api/posts', postsRouter)
+module.exports = server
